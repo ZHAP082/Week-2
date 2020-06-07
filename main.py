@@ -65,23 +65,47 @@ Mass_data_array = np.array(Mass_data)
 
 # Q.6 
 
-plt.plot(Radias_data_array,velocity_data_array)
+#plt.plot(Radias_data_array,velocity_data_array)
 
-plt.xlabel ('Radias / kpc')
-plt.ylabel ('velocity / km/s')
-plt.title ('Velocity (Blue) and Predicted (Orange) Velocity as a function of radias')
+#plt.xlabel ('Radias / kpc')
+#plt.ylabel ('velocity / km/s')
+#plt.title ('Velocity (Blue) and Predicted (Orange) Velocity as a function of radias')
 #plt.show() Since we want to plot 2 lines on same graph with theses axis tis plt.show() needed to be after the other plot is made.
 
 #Q.7 
 
-velocity_predicted_array = np.sqrt(((4.30*10**-6)*Mass_data_array)/Radias_data_array)
+#velocity_predicted_array = np.sqrt(((4.30*10**-6)*Mass_data_array)/Radias_data_array)
 
 #Q.8 
 
-plt.plot(Radias_data_array,velocity_predicted_array)
+#plt.plot(Radias_data_array,velocity_predicted_array)
 #plt.show() This is silenced since for week2 we want diffrent graphs.
 
 #Q.9 - Get data from dark matter mass for each radias from Galaxy.txt File
 
 Mass_DM = (4*np.pi*(100*10**6)*(1.87**2))*(Radias_data_array - (1.87*np.arctan(Radias_data_array / 1.87)))
+
+#Q.10 - Graphing visible, dark and their sum matter. Since matter changes with radias we say x = Radias and Mass = y. Also to get DM mass we used radias.
+#Reminder from week 1 Radias = distance from planet orbiting mass and centre of orbit. 
+
+#Making mass sum array 
+
+Mass_sum = (Mass_data_array + Mass_DM)
+
+#DM mass plot
+plt.plot(Radias_data_array,Mass_DM)
+
+plt.xlabel ('Radias / kpc')
+plt.ylabel ('Mass / solar masses')
+plt.title ('Mass of visible, d')
+
+#Visible mass plot
+plt.plot(Radias_data_array,Mass_data_array)
+
+#Sum mass plot
+
+plt.plot(Radias_data_array,Mass_sum)
+
+#Since plot.show is at the end will show all the plots with the same axis labels on same graph.
+plt.show()
 
