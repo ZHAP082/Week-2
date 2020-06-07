@@ -65,20 +65,20 @@ Mass_data_array = np.array(Mass_data)
 
 # Q.6 
 
-#plt.plot(Radias_data_array,velocity_data_array)
+plt.plot(Radias_data_array,velocity_data_array)
 
-#plt.xlabel ('Radias / kpc')
-#plt.ylabel ('velocity / km/s')
-#plt.title ('Velocity (Blue) and Predicted (Orange) Velocity as a function of radias')
+plt.xlabel ('Radias / kpc')
+plt.ylabel ('velocity / km/s')
+plt.title ('Velocity (Blue), Predicted (Orange) Velocity (Visual) Predicted (Green) Velocity (sum) and  as a function of radias')
 #plt.show() Since we want to plot 2 lines on same graph with theses axis tis plt.show() needed to be after the other plot is made.
 
 #Q.7 
 
-#velocity_predicted_array = np.sqrt(((4.30*10**-6)*Mass_data_array)/Radias_data_array)
+velocity_predicted_array = np.sqrt(((4.30*10**-6)*Mass_data_array)/Radias_data_array)
 
 #Q.8 
 
-#plt.plot(Radias_data_array,velocity_predicted_array)
+plt.plot(Radias_data_array,velocity_predicted_array)
 #plt.show() This is silenced since for week2 we want diffrent graphs.
 
 #Q.9 - Get data from dark matter mass for each radias from Galaxy.txt File
@@ -93,19 +93,31 @@ Mass_DM = (4*np.pi*(100*10**6)*(1.87**2))*(Radias_data_array - (1.87*np.arctan(R
 Mass_sum = (Mass_data_array + Mass_DM)
 
 #DM mass plot
-plt.plot(Radias_data_array,Mass_DM)
+#plt.plot(Radias_data_array,Mass_DM)
 
-plt.xlabel ('Radias / kpc')
-plt.ylabel ('Mass / solar masses')
-plt.title ('Mass of visible, d')
+#plt.xlabel ('Radias / kpc')
+#plt.ylabel ('Mass / solar masses')
+#plt.title ('Mass of visible, d')
 
 #Visible mass plot
-plt.plot(Radias_data_array,Mass_data_array)
+#plt.plot(Radias_data_array,Mass_data_array)
 
 #Sum mass plot
 
-plt.plot(Radias_data_array,Mass_sum)
+#plt.plot(Radias_data_array,Mass_sum)
 
 #Since plot.show is at the end will show all the plots with the same axis labels on same graph.
-plt.show()
+#plt.show()
 
+#Q11 -calculate v predicted with Mass_sum and plot it on week 1 graph.
+#Since you are plotting on week 1 graph will have to hashtag mass radias plots and unhastag week 1 plots.
+
+#Calculating / making array for v predicted using Mass_sum
+
+velocity_predicted_sum_array = np.sqrt(((4.30*10**-6)*Mass_sum)/Radias_data_array)
+
+#Plotting Mass_sum and v predicted
+
+plt.plot(Radias_data_array,velocity_predicted_sum_array)
+
+plt.show()
