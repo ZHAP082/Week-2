@@ -65,7 +65,7 @@ Mass_data_array = np.array(Mass_data)
 
 # Q.6 
 
-plt.plot(Radias_data_array,velocity_data_array)
+plt.plot(Radias_data_array,velocity_data_array, label = 'Data')
 
 plt.xlabel ('Radias / kpc')
 plt.ylabel ('velocity / km/s')
@@ -78,7 +78,7 @@ velocity_predicted_array = np.sqrt(((4.30*10**-6)*Mass_data_array)/Radias_data_a
 
 #Q.8 
 
-plt.plot(Radias_data_array,velocity_predicted_array)
+plt.plot(Radias_data_array,velocity_predicted_array, label = 'Visual mass')
 #plt.show() This is silenced since for week2 we want diffrent graphs.
 
 #Q.9 - Get data from dark matter mass for each radias from Galaxy.txt File
@@ -118,6 +118,8 @@ velocity_predicted_sum_array = np.sqrt(((4.30*10**-6)*Mass_sum)/Radias_data_arra
 
 #Plotting Mass_sum and v predicted
 
-plt.plot(Radias_data_array,velocity_predicted_sum_array)
+plt.plot(Radias_data_array,velocity_predicted_sum_array, label = 'Combined mass')
+
+plt.legend(['Data','Visual mass','Combined mass'])
 
 plt.show()
